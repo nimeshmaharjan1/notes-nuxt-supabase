@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="navbar fixed-bottom navbar-light bg-light px-4 py-3"
+    class="navbar sticky-bottom navbar-light bg-light px-4 py-3"
     :class="{ 'nav-dark': isDarkMode }"
   >
     <div class="d-flex align-items-center gap-3">

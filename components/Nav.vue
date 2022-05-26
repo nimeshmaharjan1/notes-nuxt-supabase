@@ -1,6 +1,11 @@
 <script setup lang="ts">
 const { signOut, isLoggedIn } = useAuth();
 const { isDarkMode, toggleDarkMode } = useDarkMode();
+const router = useRouter();
+const logout = () => {
+  signOut();
+  router.push("/");
+};
 </script>
 <template>
   <nav
@@ -30,7 +35,7 @@ const { isDarkMode, toggleDarkMode } = useDarkMode();
         >
           <div class="d-flex align-items-center">
             <NuxtLink class="nav-link" to="/profile">Notes</NuxtLink>
-            <a v-if="isLoggedIn()" class="nav-link" @click="signOut">Logout</a>
+            <a v-if="isLoggedIn()" class="nav-link" @click="logout">Logout</a>
           </div>
         </div>
       </div>

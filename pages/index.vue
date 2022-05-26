@@ -1,6 +1,12 @@
 <script setup lang="ts">
 const { isLoggedIn } = useAuth();
 const { isDarkMode } = useDarkMode();
+const router = useRouter();
+onMounted(() => {
+  if (isLoggedIn) {
+    router.push("/profile");
+  }
+});
 </script>
 <template>
   <main class="container">
@@ -25,7 +31,7 @@ const { isDarkMode } = useDarkMode();
   --bg-variant: #232323;
 }
 .main {
-  height: 80vh !important;
+  min-height: 80vh !important;
 }
 h1,
 p,

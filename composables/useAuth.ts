@@ -1,6 +1,7 @@
 const useAuth = () => {
   const user = useState("userDetails", () => null);
   const { supabase } = useSupabase();
+  const router = useRouter();
   supabase.auth.onAuthStateChange((event, session) => {
     user.value = session?.user || null;
   }); //! Acts as a listener when something in the auth changes

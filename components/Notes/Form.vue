@@ -22,7 +22,7 @@ const handleSubmit = async () => {
 };
 </script>
 <template>
-  <div class="card pb-2" :class="{ 'card-dark': isDarkMode }">
+  <div class="card pb-2 mt-2" :class="{ 'card-dark': isDarkMode }">
     <div class="card-body">
       <h4>Add Note</h4>
       <input

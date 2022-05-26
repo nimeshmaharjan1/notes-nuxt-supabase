@@ -30,15 +30,20 @@ const removeNote = async (noteId: number) => {
 </script>
 <template>
   <div class="container pb-4">
-    <div class="card mt-4 px-1" :class="{ 'card-dark': isDarkMode }">
-      <div class="card-header"><h1>My Notes</h1></div>
-      <!-- <button @click="getId">Get ID</button>
+    <!-- <div class="card mt-4 px-1" :class="{ 'card-dark': isDarkMode }"> -->
+    <!-- <div class="card-header"><h1>My Notes</h1></div> -->
+    <!-- <button @click="getId">Get ID</button>
       {{ rowId }} -->
-      <div class="card-body">
+    <!-- <div class="card-body d-flex"> -->
+    <div class="row">
+      <div class="col-6">
         <NotesForm />
-        <section class="notes-section my-3 mt-3" v-if="fetchedNotes">
+      </div>
+      <div class="col-6">
+        <section class="notes-section" v-if="fetchedNotes">
           <div
-            class="card mt-3"
+            class="card"
+            style="margin-top: 0.5rem"
             :class="{ 'card-dark': isDarkMode }"
             v-for="(note, index) in fetchedNotes.data"
             :key="note.id"
@@ -48,7 +53,7 @@ const removeNote = async (noteId: number) => {
               <hr />
               <p>{{ note.note }}</p>
             </div>
-            <div class="card-footer">
+            <div class="card-footer py-2">
               <button
                 class="btn btn-outline-danger btn-sm"
                 @click="() => removeNote(note.id)"
@@ -60,11 +65,16 @@ const removeNote = async (noteId: number) => {
         </section>
       </div>
     </div>
+    <!-- </div> -->
+    <!-- </div> -->
   </div>
 </template>
 <style lang="scss" scoped>
 p {
   font-size: 1.2rem;
   margin-bottom: 0;
+}
+.container {
+  min-height: 100vh;
 }
 </style>
